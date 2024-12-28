@@ -67,23 +67,45 @@ public:
 
 };
 
+class Bonus : public GameObject {
+public:
+    Bonus() {}
+    void action() override {
+        cout << "Bir iksir buldunuz. Caniniz +20 artti! ??\n";
+    }
+};
 class Treasure : public GameObject {
 public:
-
+    Treasure() {}
+    void action() override {
+        cout << "Tebrikler! Hazineyi buldunuz ve oyunu kazandiniz! ??\n";
+    }
 };
 
 // Enemy sýnýfý: Oyuncunun canýný azaltan düþman nesnesi
 // GameObject sýnýfýndan türetilmiþtir (kalýtým).
 class Enemy : public GameObject {
 public:
-
+    Enemy() {}
+    void action() override {
+        cout << "Bir dusmanla karsilastiniz! Caniniz -20 azaldi! ??\n";
+    }
 };
 
 
 void drawMap(int playerX, int playerY) {
-
+    cout << "\n";
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (i == playerY && j == playerX)
+                cout << " P "; // Oyuncu
+            else
+                cout << " . "; // Boþ alan
+        }
+        cout << endl;
+    }
+    cout << "\n";
 }
-
 int main(){
 
     return 0;
